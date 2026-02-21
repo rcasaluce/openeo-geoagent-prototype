@@ -139,8 +139,8 @@ Optional environment variable:
 Example `.env` (optional, for local development):
 
 ```bash
-GEMINI_API_KEY=your_gemini_key_here
-OPENEO_COLLECTIONS_KG_PATH=collections_kg.json
+TOKEN_GEMINI=your_gemini_key_here
+OPENEO_COLLECTIONS_KG_PATH=../data/collections_kg.json
 ```
 
 > Note: `.env` is **not loaded automatically** unless you use a launcher or `python-dotenv`.
