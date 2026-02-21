@@ -58,12 +58,7 @@ GEMINI
 *.pem
 *.key
 
-# =========================
-# Generated data / outputs
-# =========================
-# Knowledge Graph output (generated)
-collections_kg.json
-data/collections_kg.json
+
 
 # Typical EO / openEO outputs
 *.tif

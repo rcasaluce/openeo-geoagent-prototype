@@ -27,6 +27,7 @@ repo/
 │  ├─ README_OPENEO_LLM.md           # Main project documentation (detailed)
 │  └─ README_COLLECTIONS_KG.md       # collections_kg module documentation
 │
+├─ data/collections_kg.json
 │
 └─ .env.example                      # Example env variables (no secrets)
 

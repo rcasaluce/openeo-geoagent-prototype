@@ -1,0 +1,4998 @@
+{
+  "endpoint": "https://openeo.dataspace.copernicus.eu",
+  "indices_catalog": {
+    "NDVI": {
+      "label": "Normalized Difference Vegetation Index",
+      "formula": "(NIR - RED) / (NIR + RED)",
+      "required_roles": [
+        "NIR",
+        "RED"
+      ],
+      "sensor_type": "optical",
+      "phenomenon": [
+        "vegetation",
+        "greenness",
+        "biomass"
+      ],
+      "role_wavelength_nm_ranges": {
+        "NIR": [
+          750,
+          900
+        ],
+        "RED": [
+          600,
+          700
+        ]
+      }
+    },
+    "EVI": {
+      "label": "Enhanced Vegetation Index",
+      "formula": "2.5 * (NIR - RED) / (NIR + 6*RED - 7.5*BLUE + 1)",
+      "required_roles": [
+        "BLUE",
+        "RED",
+        "NIR"
+      ],
+      "sensor_type": "optical",
+      "phenomenon": [
+        "vegetation",
+        "greenness",
+        "biomass"
+      ],
+      "role_wavelength_nm_ranges": {
+        "BLUE": [
+          400,
+          520
+        ],
+        "RED": [
+          600,
+          700
+        ],
+        "NIR": [
+          750,
+          900
+        ]
+      }
+    },
+    "RGB": {
+      "label": "True color RGB",
+      "formula": "Stack of RED, GREEN, BLUE reflectances",
+      "required_roles": [
+        "RED",
+        "GREEN",
+        "BLUE"
+      ],
+      "sensor_type": "optical",
+      "phenomenon": [
+        "visual",
+        "true_color",
+        "rgb"
+      ],
+      "role_wavelength_nm_ranges": {
+        "BLUE": [
+          400,
+          520
+        ],
+        "GREEN": [
+          500,
+          600
+        ],
+        "RED": [
+          600,
+          700
+        ]
+      }
+    },
+    "SAVI": {
+      "label": "Soil Adjusted Vegetation Index",
+      "formula": "(NIR - RED) * (1 + L) / (NIR + RED + L), L≈0.5",
+      "required_roles": [
+        "NIR",
+        "RED"
+      ],
+      "sensor_type": "optical",
+      "phenomenon": [
+        "vegetation",
+        "soil_adjusted",
+        "sparse_canopy"
+      ],
+      "role_wavelength_nm_ranges": {
+        "NIR": [
+          750,
+          900
+        ],
+        "RED": [
+          600,
+          700
+        ]
+      }
+    },
+    "OSAVI": {
+      "label": "Optimized Soil Adjusted Vegetation Index",
+      "formula": "(NIR - RED) * 1.16 / (NIR + RED + 0.16)",
+      "required_roles": [
+        "NIR",
+        "RED"
+      ],
+      "sensor_type": "optical",
+      "phenomenon": [
+        "vegetation",
+        "soil_adjusted",
+        "sparse_canopy"
+      ],
+      "role_wavelength_nm_ranges": {
+        "NIR": [
+          750,
+          900
+        ],
+        "RED": [
+          600,
+          700
+        ]
+      }
+    },
+    "MSAVI": {
+      "label": "Modified Soil Adjusted Vegetation Index",
+      "formula": "(2 * NIR + 1 - sqrt((2 * NIR + 1)**2 - 8 * (NIR - RED))) / 2",
+      "required_roles": [
+        "NIR",
+        "RED"
+      ],
+      "sensor_type": "optical",
+      "phenomenon": [
+        "vegetation",
+        "soil_adjusted",
+        "sparse_canopy"
+      ],
+      "role_wavelength_nm_ranges": {
+        "NIR": [
+          750,
+          900
+        ],
+        "RED": [
+          600,
+          700
+        ]
+      }
+    },
+    "MSAVI2": {
+      "label": "Modified Soil Adjusted Vegetation Index 2",
+      "formula": "(2 * NIR + 1 - sqrt((2 * NIR + 1)**2 - 8 * (NIR - RED))) / 2",
+      "required_roles": [
+        "NIR",
+        "RED"
+      ],
+      "sensor_type": "optical",
+      "phenomenon": [
+        "vegetation",
+        "soil_adjusted",
+        "sparse_canopy"
+      ],
+      "role_wavelength_nm_ranges": {
+        "NIR": [
+          750,
+          900
+        ],
+        "RED": [
+          600,
+          700
+        ]
+      }
+    },
+    "GNDVI": {
+      "label": "Green Normalized Difference Vegetation Index",
+      "formula": "(NIR - GREEN) / (NIR + GREEN)",
+      "required_roles": [
+        "NIR",
+        "GREEN"
+      ],
+      "sensor_type": "optical",
+      "phenomenon": [
+        "vegetation",
+        "chlorophyll",
+        "stress"
+      ],
+      "role_wavelength_nm_ranges": {
+        "NIR": [
+          750,
+          900
+        ],
+        "GREEN": [
+          500,
+          600
+        ]
+      }
+    },
+    "NDRE": {
+      "label": "Normalized Difference Red Edge Index",
+      "formula": "(NIR - RED_EDGE) / (NIR + RED_EDGE)",
+      "required_roles": [
+        "NIR",
+        "RED_EDGE"
+      ],
+      "sensor_type": "optical",
+      "phenomenon": [
+        "vegetation",
+        "chlorophyll",
+        "stress",
+        "red_edge"
+      ],
+      "role_wavelength_nm_ranges": {
+        "NIR": [
+          750,
+          900
+        ],
+        "RED_EDGE": [
+          700,
+          750
+        ]
+      }
+    },
+    "ARVI": {
+      "label": "Atmospherically Resistant Vegetation Index",
+      "formula": "(NIR - (2*RED - BLUE)) / (NIR + (2*RED - BLUE))",
+      "required_roles": [
+        "NIR",
+        "RED",
+        "BLUE"
+      ],
+      "sensor_type": "optical",
+      "phenomenon": [
+        "vegetation",
+        "greenness",
+        "atmosphere_resistant"
+      ],
+      "role_wavelength_nm_ranges": {
+        "NIR": [
+          750,
+          900
+        ],
+        "RED": [
+          600,
+          700
+        ],
+        "BLUE": [
+          400,
+          520
+        ]
+      }
+    },
+    "NDWI": {
+      "label": "Normalized Difference Water Index (Green/NIR variant)",
+      "formula": "(GREEN - NIR) / (GREEN + NIR)",
+      "required_roles": [
+        "GREEN",
+        "NIR"
+      ],
+      "sensor_type": "optical",
+      "phenomenon": [
+        "water",
+        "wetness",
+        "vegetation_water_content"
+      ],
+      "role_wavelength_nm_ranges": {
+        "GREEN": [
+          500,
+          600
+        ],
+        "NIR": [
+          750,
+          900
+        ]
+      }
+    },
+    "MNDWI": {
+      "label": "Modified Normalized Difference Water Index",
+      "formula": "(GREEN - SWIR1) / (GREEN + SWIR1)",
+      "required_roles": [
+        "GREEN",
+        "SWIR1"
+      ],
+      "sensor_type": "optical",
+      "phenomenon": [
+        "water",
+        "surface_water",
+        "urban_water"
+      ],
+      "role_wavelength_nm_ranges": {
+        "GREEN": [
+          500,
+          600
+        ],
+        "SWIR1": [
+          1500,
+          1800
+        ]
+      }
+    },
+    "AWEI_SH": {
+      "label": "Automated Water Extraction Index (shadow version)",
+      "formula": "4*(GREEN - SWIR1) - (0.25*NIR + 2.75*SWIR2)",
+      "required_roles": [
+        "GREEN",
+        "NIR",
+        "SWIR1",
+        "SWIR2"
+      ],
+      "sensor_type": "optical",
+      "phenomenon": [
+        "water",
+        "surface_water",
+        "shadows"
+      ],
+      "role_wavelength_nm_ranges": {
+        "GREEN": [
+          500,
+          600
+        ],
+        "NIR": [
+          750,
+          900
+        ],
+        "SWIR1": [
+          1500,
+          1800
+        ],
+        "SWIR2": [
+          2000,
+          2500
+        ]
+      }
+    },
+    "AWEI_NSH": {
+      "label": "Automated Water Extraction Index (no-shadow version)",
+      "formula": "BLUE + 2.5*GREEN - 1.5*(NIR + SWIR1) - 0.25*SWIR2",
+      "required_roles": [
+        "BLUE",
+        "GREEN",
+        "NIR",
+        "SWIR1",
+        "SWIR2"
+      ],
+      "sensor_type": "optical",
+      "phenomenon": [
+        "water",
+        "surface_water"
+      ],
+      "role_wavelength_nm_ranges": {
+        "BLUE": [
+          400,
+          520
+        ],
+        "GREEN": [
+          500,
+          600
+        ],
+        "NIR": [
+          750,
+          900
+        ],
+        "SWIR1": [
+          1500,
+          1800
+        ],
+        "SWIR2": [
+          2000,
+          2500
+        ]
+      }
+    },
+    "NDSI": {
+      "label": "Normalized Difference Snow Index",
+      "formula": "(GREEN - SWIR1) / (GREEN + SWIR1)",
+      "required_roles": [
+        "GREEN",
+        "SWIR1"
+      ],
+      "sensor_type": "optical",
+      "phenomenon": [
+        "snow",
+        "cryosphere",
+        "snow_cover"
+      ],
+      "role_wavelength_nm_ranges": {
+        "GREEN": [
+          500,
+          600
+        ],
+        "SWIR1": [
+          1500,
+          1800
+        ]
+      }
+    },
+    "NBR": {
+      "label": "Normalized Burn Ratio",
+      "formula": "(NIR - SWIR2) / (NIR + SWIR2)",
+      "required_roles": [
+        "NIR",
+        "SWIR2"
+      ],
+      "sensor_type": "optical",
+      "phenomenon": [
+        "fire",
+        "burned_area",
+        "severity"
+      ],
+      "role_wavelength_nm_ranges": {
+        "NIR": [
+          750,
+          900
+        ],
+        "SWIR2": [
+          2000,
+          2500
+        ]
+      }
+    },
+    "NBR2": {
+      "label": "Normalized Burn Ratio 2",
+      "formula": "(SWIR1 - SWIR2) / (SWIR1 + SWIR2)",
+      "required_roles": [
+        "SWIR1",
+        "SWIR2"
+      ],
+      "sensor_type": "optical",
+      "phenomenon": [
+        "fire",
+        "burned_area",
+        "moisture"
+      ],
+      "role_wavelength_nm_ranges": {
+        "SWIR1": [
+          1500,
+          1800
+        ],
+        "SWIR2": [
+          2000,
+          2500
+        ]
+      }
+    },
+    "BAI": {
+      "label": "Burned Area Index",
+      "formula": "1 / ((RED - 0.1)**2 + (NIR - 0.06)**2)",
+      "required_roles": [
+        "RED",
+        "NIR"
+      ],
+      "sensor_type": "optical",
+      "phenomenon": [
+        "fire",
+        "burned_area"
+      ],
+      "role_wavelength_nm_ranges": {
+        "RED": [
+          600,
+          700
+        ],
+        "NIR": [
+          750,
+          900
+        ]
+      }
+    },
+    "NDBI": {
+      "label": "Normalized Difference Built-up Index",
+      "formula": "(SWIR1 - NIR) / (SWIR1 + NIR)",
+      "required_roles": [
+        "SWIR1",
+        "NIR"
+      ],
+      "sensor_type": "optical",
+      "phenomenon": [
+        "urban",
+        "built_up",
+        "impervious"
+      ],
+      "role_wavelength_nm_ranges": {
+        "SWIR1": [
+          1500,
+          1800
+        ],
+        "NIR": [
+          750,
+          900
+        ]
+      }
+    },
+    "BSI": {
+      "label": "Bare Soil Index",
+      "formula": "((SWIR1 + RED) - (NIR + BLUE)) / ((SWIR1 + RED) + (NIR + BLUE))",
+      "required_roles": [
+        "SWIR1",
+        "RED",
+        "NIR",
+        "BLUE"
+      ],
+      "sensor_type": "optical",
+      "phenomenon": [
+        "bare_soil",
+        "degradation",
+        "desertification"
+      ],
+      "role_wavelength_nm_ranges": {
+        "SWIR1": [
+          1500,
+          1800
+        ],
+        "RED": [
+          600,
+          700
+        ],
+        "NIR": [
+          750,
+          900
+        ],
+        "BLUE": [
+          400,
+          520
+        ]
+      }
+    },
+    "VV_VH_RATIO": {
+      "label": "VV/VH backscatter ratio",
+      "formula": "VV / VH (in linear space)",
+      "required_roles": [
+        "VV",
+        "VH"
+      ],
+      "sensor_type": "sar",
+      "phenomenon": [
+        "structure",
+        "surface",
+        "roughness"
+      ],
+      "role_wavelength_nm_ranges": {}
+    },
+    "RVI": {
+      "label": "Radar Vegetation Index (simplified VV/VH version)",
+      "formula": "4 * VH / (VV + VH)",
+      "required_roles": [
+        "VV",
+        "VH"
+      ],
+      "sensor_type": "sar",
+      "phenomenon": [
+        "vegetation",
+        "structure",
+        "volume_scattering"
+      ],
+      "role_wavelength_nm_ranges": {}
+    }
+  },
+  "collections": [
+    {
+      "collection_id": "SENTINEL3_OLCI_L1B",
+      "title": "Sentinel 3 OLCI",
+      "description": "Sentinel 3 imagery captured by OLCI sensor",
+      "platform": null,
+      "instrument": null,
+      "license": "proprietary",
+      "keywords": [],
+      "sensor_type": "optical",
+      "temporal_extent": [
+        "2016-04-17T11:33:13Z",
+        null
+      ],
+      "spatial_extent": {
+        "west": -180,
+        "east": 180,
+        "south": -85,
+        "north": 85
+      },
+      "native_resolution": {
+        "x": null,
+        "y": null
+      },
+      "crs": 4326,
+      "logical_roles": {
+        "BLUE": "B04",
+        "GREEN": "B06",
+        "RED": "B08",
+        "RED_EDGE": "B11",
+        "NIR": "B17"
+      },
+      "supported_indices": [
+        "NDVI",
+        "EVI",
+        "RGB",
+        "SAVI",
+        "OSAVI",
+        "MSAVI",
+        "MSAVI2",
+        "GNDVI",
+        "NDRE",
+        "ARVI",
+        "NDWI",
+        "BAI"
+      ],
+      "bands": [
+        {
+          "band_id": "B01",
+          "common_name": null,
+          "center_wavelength_nm": 400.0,
+          "full_width_half_max_nm": null,
+          "description": "Aerosol correction, improved water constituent retrieval",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "B02",
+          "common_name": null,
+          "center_wavelength_nm": 412.5,
+          "full_width_half_max_nm": null,
+          "description": "Yellow substance and detrital pigments (turbidity)",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "B03",
+          "common_name": null,
+          "center_wavelength_nm": 442.5,
+          "full_width_half_max_nm": null,
+          "description": "Chlorophyll absorption maximum, biogeochemistry, vegetation",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "BLUE"
+          ]
+        },
+        {
+          "band_id": "B04",
+          "common_name": null,
+          "center_wavelength_nm": 490.0,
+          "full_width_half_max_nm": null,
+          "description": "Chlorophyll",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "BLUE"
+          ]
+        },
+        {
+          "band_id": "B05",
+          "common_name": null,
+          "center_wavelength_nm": 510.0,
+          "full_width_half_max_nm": null,
+          "description": "Chlorophyll, sediment, turbidity, red tide",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "BLUE"
+          ]
+        },
+        {
+          "band_id": "B06",
+          "common_name": null,
+          "center_wavelength_nm": 560.0,
+          "full_width_half_max_nm": null,
+          "description": "Chlorophyll reference (minimum)",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "GREEN"
+          ]
+        },
+        {
+          "band_id": "B07",
+          "common_name": null,
+          "center_wavelength_nm": 620.0,
+          "full_width_half_max_nm": null,
+          "description": "Sediment loading",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "RED"
+          ]
+        },
+        {
+          "band_id": "B08",
+          "common_name": null,
+          "center_wavelength_nm": 665.0,
+          "full_width_half_max_nm": null,
+          "description": "2nd Chlorophyll absorption maximum, sediment, yellow substance / vegetation",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "RED"
+          ]
+        },
+        {
+          "band_id": "B09",
+          "common_name": null,
+          "center_wavelength_nm": 673.75,
+          "full_width_half_max_nm": null,
+          "description": "Improved fluorescence retrieval",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "RED"
+          ]
+        },
+        {
+          "band_id": "B10",
+          "common_name": null,
+          "center_wavelength_nm": 681.25,
+          "full_width_half_max_nm": null,
+          "description": "Chlorophyll fluorescence peak, red edge",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "RED_EDGE",
+            "RED"
+          ]
+        },
+        {
+          "band_id": "B11",
+          "common_name": null,
+          "center_wavelength_nm": 708.75,
+          "full_width_half_max_nm": null,
+          "description": "Chlorophyll fluorescence baseline, red edge transition",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "RED_EDGE"
+          ]
+        },
+        {
+          "band_id": "B12",
+          "common_name": null,
+          "center_wavelength_nm": 753.75,
+          "full_width_half_max_nm": null,
+          "description": "O2 absorption / clouds, vegetation",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B13",
+          "common_name": null,
+          "center_wavelength_nm": 761.25,
+          "full_width_half_max_nm": null,
+          "description": "O2 absorption / aerosol correction",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B14",
+          "common_name": null,
+          "center_wavelength_nm": 764.375,
+          "full_width_half_max_nm": null,
+          "description": "Atmospheric correction",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B15",
+          "common_name": null,
+          "center_wavelength_nm": 767.5,
+          "full_width_half_max_nm": null,
+          "description": "O2 absorption used for cloud top pressure, fluorescence over land",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B16",
+          "common_name": null,
+          "center_wavelength_nm": 778.75,
+          "full_width_half_max_nm": null,
+          "description": "Atmospheric / aerosol correction",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B17",
+          "common_name": null,
+          "center_wavelength_nm": 865.0,
+          "full_width_half_max_nm": null,
+          "description": "Atmospheric / aerosol correction, clouds, pixel co-registration",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B18",
+          "common_name": null,
+          "center_wavelength_nm": 885.0,
+          "full_width_half_max_nm": null,
+          "description": "Water vapour absorption reference. Common reference band with SLSTR. Vegetation monitoring",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B19",
+          "common_name": null,
+          "center_wavelength_nm": 900.0,
+          "full_width_half_max_nm": null,
+          "description": "Water vapour absorption, vegetation monitoring (maximum reflectance)",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B20",
+          "common_name": null,
+          "center_wavelength_nm": 940.0,
+          "full_width_half_max_nm": null,
+          "description": "Water vapour absorption, atmospheric / aerosol correction",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "B21",
+          "common_name": null,
+          "center_wavelength_nm": 1020.0,
+          "full_width_half_max_nm": null,
+          "description": "Atmospheric / aerosol correction, snow grain size",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        }
+      ]
+    },
+    {
+      "collection_id": "SENTINEL3_SLSTR",
+      "title": "Sentinel 3 SLSTR",
+      "description": "Sentinel 3 imagery captured by SLSTR sensor",
+      "platform": null,
+      "instrument": null,
+      "license": "proprietary",
+      "keywords": [],
+      "sensor_type": "optical",
+      "temporal_extent": [
+        "2016-04-17T11:33:13Z",
+        null
+      ],
+      "spatial_extent": {
+        "west": -180,
+        "east": 180,
+        "south": -85,
+        "north": 85
+      },
+      "native_resolution": {
+        "x": null,
+        "y": null
+      },
+      "crs": 4326,
+      "logical_roles": {
+        "GREEN": "S1",
+        "RED": "S2",
+        "NIR": "S3",
+        "SWIR1": "S5",
+        "SWIR2": "S6"
+      },
+      "supported_indices": [
+        "NDVI",
+        "SAVI",
+        "OSAVI",
+        "MSAVI",
+        "MSAVI2",
+        "GNDVI",
+        "NDWI",
+        "MNDWI",
+        "AWEI_SH",
+        "NDSI",
+        "NBR",
+        "NBR2",
+        "BAI",
+        "NDBI"
+      ],
+      "bands": [
+        {
+          "band_id": "S1",
+          "common_name": null,
+          "center_wavelength_nm": 554.2700000000001,
+          "full_width_half_max_nm": null,
+          "description": "Cloud screening, vegetation monitoring, aerosol",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "GREEN"
+          ]
+        },
+        {
+          "band_id": "S2",
+          "common_name": null,
+          "center_wavelength_nm": 659.47,
+          "full_width_half_max_nm": null,
+          "description": "NDVI, vegetation monitoring, aerosol",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "RED"
+          ]
+        },
+        {
+          "band_id": "S3",
+          "common_name": null,
+          "center_wavelength_nm": 868.0,
+          "full_width_half_max_nm": null,
+          "description": "NDVI, cloud flagging, pixel co-registration",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "S4",
+          "common_name": null,
+          "center_wavelength_nm": 1374.8,
+          "full_width_half_max_nm": null,
+          "description": "Cirrus detection over land",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "S5",
+          "common_name": null,
+          "center_wavelength_nm": 1613.3999999999999,
+          "full_width_half_max_nm": null,
+          "description": "Cloud clearing, ice, snow, vegetation monitoring",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "SWIR1"
+          ]
+        },
+        {
+          "band_id": "S6",
+          "common_name": null,
+          "center_wavelength_nm": 2255.7,
+          "full_width_half_max_nm": null,
+          "description": "Vegetation state and cloud clearing",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "SWIR2"
+          ]
+        },
+        {
+          "band_id": "S7",
+          "common_name": null,
+          "center_wavelength_nm": 3742.0,
+          "full_width_half_max_nm": null,
+          "description": "SST, LST, Active fire",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "S8",
+          "common_name": null,
+          "center_wavelength_nm": 10854.0,
+          "full_width_half_max_nm": null,
+          "description": "SST, LST, Active fire",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "S9",
+          "common_name": null,
+          "center_wavelength_nm": 12022.5,
+          "full_width_half_max_nm": null,
+          "description": "SST, LST",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "F1",
+          "common_name": null,
+          "center_wavelength_nm": 3742.0,
+          "full_width_half_max_nm": null,
+          "description": "Active fire",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "F2",
+          "common_name": null,
+          "center_wavelength_nm": 10854.0,
+          "full_width_half_max_nm": null,
+          "description": "Active fire",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        }
+      ]
+    },
+    {
+      "collection_id": "SENTINEL_5P_L2",
+      "title": "Sentinel 5 Precursor",
+      "description": "Sentinel 5 Precursor imagery captured by TROPOMI sensor.\n\nThis dataset only supports loading one band at a time.",
+      "platform": null,
+      "instrument": null,
+      "license": "proprietary",
+      "keywords": [],
+      "sensor_type": "other",
+      "temporal_extent": [
+        "2018-04-30T00:18:50Z",
+        null
+      ],
+      "spatial_extent": {
+        "west": -180,
+        "east": 180,
+        "south": -85,
+        "north": 85
+      },
+      "native_resolution": {
+        "x": null,
+        "y": null
+      },
+      "crs": 4326,
+      "logical_roles": {},
+      "supported_indices": [],
+      "bands": [
+        {
+          "band_id": "CO",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Carbon monoxide",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "HCHO",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Formaldehyde",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "NO2",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Nitrogen oxide",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "O3",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Ozone",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "SO2",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Sulphur dioxide",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "CH4",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Methane",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "AER_AI_340_380",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "UV (Ultraviolet) Aerosol Index calculated based on wavelengths of 340 nm and 380 nm",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "AER_AI_354_388",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "UV (Ultraviolet) Aerosol Index calculated based on wavelengths of 354 nm and 388 nm",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "CLOUD_BASE_PRESSURE",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Cloud base pressure",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "CLOUD_TOP_PRESSURE",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Cloud top pressure",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "CLOUD_BASE_HEIGHT",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Cloud base height",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "CLOUD_TOP_HEIGHT",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Cloud top height",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "CLOUD_OPTICAL_THICKNESS",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Cloud optical thickness",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "CLOUD_FRACTION",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Effective radiometric cloud fraction",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "dataMask",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "The mask of data/no data pixels.",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        }
+      ]
+    },
+    {
+      "collection_id": "LANDSAT8_L2_BIMONTHLY_MOSAIC",
+      "title": "Landsat mosaic (bi-monthly, v1.0.1)",
+      "description": "Global, cloud-free, and reconstructed historical Landsat spectral bands are provided at a spatial resolution of 30 meters and temporal resolution of bimonthly intervals from 1997 onwards. The dataset was generated using the GLAD Landsat ARD version 2 as the primary input for temporal aggregation and the imputation of missing values.",
+      "platform": null,
+      "instrument": null,
+      "license": "other",
+      "keywords": [
+        "Landsat",
+        "Mosaic",
+        "Time-series",
+        "Global"
+      ],
+      "sensor_type": "optical",
+      "temporal_extent": [
+        "1997-01-01T00:00:00Z",
+        null
+      ],
+      "spatial_extent": {
+        "west": -180,
+        "east": 180,
+        "south": -90,
+        "north": 90
+      },
+      "native_resolution": {
+        "x": 0.00025,
+        "y": 0.00025
+      },
+      "crs": 4326,
+      "logical_roles": {
+        "BLUE": "B01",
+        "RED_EDGE": "B03",
+        "GREEN": "B02",
+        "RED": "B03",
+        "NIR": "B04",
+        "SWIR1": "B05",
+        "SWIR2": "B06"
+      },
+      "supported_indices": [
+        "NDVI",
+        "EVI",
+        "RGB",
+        "SAVI",
+        "OSAVI",
+        "MSAVI",
+        "MSAVI2",
+        "GNDVI",
+        "ARVI",
+        "NDWI",
+        "MNDWI",
+        "AWEI_SH",
+        "AWEI_NSH",
+        "NDSI",
+        "NBR",
+        "NBR2",
+        "BAI",
+        "NDBI",
+        "BSI"
+      ],
+      "bands": [
+        {
+          "band_id": "B01",
+          "common_name": "blue",
+          "center_wavelength_nm": 482.0,
+          "full_width_half_max_nm": 60.0,
+          "description": "Blue",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "BLUE"
+          ]
+        },
+        {
+          "band_id": "B02",
+          "common_name": "green",
+          "center_wavelength_nm": 561.0,
+          "full_width_half_max_nm": 57.0,
+          "description": "Green",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "RED_EDGE",
+            "GREEN"
+          ]
+        },
+        {
+          "band_id": "B03",
+          "common_name": "red",
+          "center_wavelength_nm": 655.0,
+          "full_width_half_max_nm": 37.0,
+          "description": "Red",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "RED_EDGE",
+            "RED"
+          ]
+        },
+        {
+          "band_id": "B04",
+          "common_name": "nir08",
+          "center_wavelength_nm": 865.0,
+          "full_width_half_max_nm": 28.0,
+          "description": "Near Infrared",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B05",
+          "common_name": "swir16",
+          "center_wavelength_nm": 1609.0,
+          "full_width_half_max_nm": 85.0,
+          "description": "Short-wave Infrared 1.6",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "SWIR1"
+          ]
+        },
+        {
+          "band_id": "B06",
+          "common_name": "swir22",
+          "center_wavelength_nm": 2201.0,
+          "full_width_half_max_nm": 187.0,
+          "description": "Short-wave Infrared 2.2",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "SWIR2"
+          ]
+        },
+        {
+          "band_id": "B07",
+          "common_name": "lwir12",
+          "center_wavelength_nm": 12005.0,
+          "full_width_half_max_nm": 1010.0,
+          "description": "Thermal",
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        }
+      ]
+    },
+    {
+      "collection_id": "COPERNICUS_VEGETATION_PHENOLOGY_PRODUCTIVITY_10M_SEASON1",
+      "title": "Vegetation Phenology and Productivity parameters, yearly, UTM projection",
+      "description": "[EXPERIMENTAL] Copernicus High Resolution Land Vegetation Phenology and Productivity parameters at 10m on yearly basis from 2017 onwards for EU countries. This collection contains parameters of the first detected growing season.",
+      "platform": null,
+      "instrument": null,
+      "license": "proprietary",
+      "keywords": [
+        "PPI",
+        "index",
+        "land",
+        "vegetation",
+        "plant",
+        "phenology",
+        "productivity",
+        "growing season",
+        "sentinel"
+      ],
+      "sensor_type": "other",
+      "temporal_extent": [
+        "2017-01-01T00:00:00Z",
+        "2023-12-31T23:59:59Z"
+      ],
+      "spatial_extent": {
+        "west": -62.0760771,
+        "east": 56.138312,
+        "south": -21.7894746,
+        "north": 72.0995811
+      },
+      "native_resolution": {
+        "x": 10,
+        "y": 10
+      },
+      "crs": {
+        "$schema": "https://proj.org/schemas/v0.2/projjson.schema.json",
+        "area": "World",
+        "bbox": {
+          "east_longitude": 180,
+          "north_latitude": 90,
+          "south_latitude": -90,
+          "west_longitude": -180
+        },
+        "coordinate_system": {
+          "axis": [
+            {
+              "abbreviation": "Lat",
+              "direction": "north",
+              "name": "Geodetic latitude",
+              "unit": "degree"
+            },
+            {
+              "abbreviation": "Lon",
+              "direction": "east",
+              "name": "Geodetic longitude",
+              "unit": "degree"
+            }
+          ],
+          "subtype": "ellipsoidal"
+        },
+        "datum": {
+          "ellipsoid": {
+            "inverse_flattening": 298.257223563,
+            "name": "WGS 84",
+            "semi_major_axis": 6378137
+          },
+          "name": "World Geodetic System 1984",
+          "type": "GeodeticReferenceFrame"
+        },
+        "id": {
+          "authority": "OGC",
+          "code": "Auto42001",
+          "version": "1.3"
+        },
+        "name": "AUTO 42001 (Universal Transverse Mercator)",
+        "type": "GeodeticCRS"
+      },
+      "logical_roles": {},
+      "supported_indices": [],
+      "bands": [
+        {
+          "band_id": "SOSD",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "EOSD",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "MAXD",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "SOSV",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "EOSV",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "MINV",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "MAXV",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "AMPL",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "LENGTH",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "LSLOPE",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "RSLOPE",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "SPROD",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "TPROD",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "QFLAG",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        }
+      ]
+    },
+    {
+      "collection_id": "COPERNICUS_VEGETATION_PHENOLOGY_PRODUCTIVITY_10M_SEASON2",
+      "title": "Vegetation Phenology and Productivity parameters, yearly, UTM projection",
+      "description": "[EXPERIMENTAL] Copernicus High Resolution Land Vegetation Phenology and Productivity parameters at 10m on yearly basis from 2017 onwards for EU countries. This collection contains parameters for season 2.",
+      "platform": null,
+      "instrument": null,
+      "license": "proprietary",
+      "keywords": [
+        "PPI",
+        "index",
+        "land",
+        "vegetation",
+        "plant",
+        "phenology",
+        "productivity",
+        "growing season",
+        "sentinel"
+      ],
+      "sensor_type": "other",
+      "temporal_extent": [
+        "2017-01-01T00:00:00Z",
+        "2023-12-31T23:59:59Z"
+      ],
+      "spatial_extent": {
+        "west": -62.0760771,
+        "east": 56.138312,
+        "south": -21.7894746,
+        "north": 72.0995811
+      },
+      "native_resolution": {
+        "x": 10,
+        "y": 10
+      },
+      "crs": {
+        "$schema": "https://proj.org/schemas/v0.2/projjson.schema.json",
+        "area": "World",
+        "bbox": {
+          "east_longitude": 180,
+          "north_latitude": 90,
+          "south_latitude": -90,
+          "west_longitude": -180
+        },
+        "coordinate_system": {
+          "axis": [
+            {
+              "abbreviation": "Lat",
+              "direction": "north",
+              "name": "Geodetic latitude",
+              "unit": "degree"
+            },
+            {
+              "abbreviation": "Lon",
+              "direction": "east",
+              "name": "Geodetic longitude",
+              "unit": "degree"
+            }
+          ],
+          "subtype": "ellipsoidal"
+        },
+        "datum": {
+          "ellipsoid": {
+            "inverse_flattening": 298.257223563,
+            "name": "WGS 84",
+            "semi_major_axis": 6378137
+          },
+          "name": "World Geodetic System 1984",
+          "type": "GeodeticReferenceFrame"
+        },
+        "id": {
+          "authority": "OGC",
+          "code": "Auto42001",
+          "version": "1.3"
+        },
+        "name": "AUTO 42001 (Universal Transverse Mercator)",
+        "type": "GeodeticCRS"
+      },
+      "logical_roles": {},
+      "supported_indices": [],
+      "bands": [
+        {
+          "band_id": "SOSD",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "EOSD",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "MAXD",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "SOSV",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "EOSV",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "MINV",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "MAXV",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "AMPL",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "LENGTH",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "LSLOPE",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "RSLOPE",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "SPROD",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "TPROD",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "QFLAG",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        }
+      ]
+    },
+    {
+      "collection_id": "COPERNICUS_PLANT_PHENOLOGY_INDEX",
+      "title": "Seasonal PPI Trajectories, 10-daily, UTM projection",
+      "description": "[EXPERIMENTAL] Plant phenology index (PPI) at 10m resolution for EU.",
+      "platform": null,
+      "instrument": null,
+      "license": "proprietary",
+      "keywords": [
+        "PPI",
+        "index",
+        "land",
+        "vegetation",
+        "plant",
+        "phenology",
+        "growing season",
+        "productivity",
+        "sentinel"
+      ],
+      "sensor_type": "other",
+      "temporal_extent": [
+        "2017-01-01T00:00:00Z",
+        null
+      ],
+      "spatial_extent": {
+        "west": -62.0760771,
+        "east": 56.138312,
+        "south": -21.7894746,
+        "north": 72.0995811
+      },
+      "native_resolution": {
+        "x": 10,
+        "y": 10
+      },
+      "crs": {
+        "$schema": "https://proj.org/schemas/v0.2/projjson.schema.json",
+        "area": "World",
+        "bbox": {
+          "east_longitude": 180,
+          "north_latitude": 90,
+          "south_latitude": -90,
+          "west_longitude": -180
+        },
+        "coordinate_system": {
+          "axis": [
+            {
+              "abbreviation": "Lat",
+              "direction": "north",
+              "name": "Geodetic latitude",
+              "unit": "degree"
+            },
+            {
+              "abbreviation": "Lon",
+              "direction": "east",
+              "name": "Geodetic longitude",
+              "unit": "degree"
+            }
+          ],
+          "subtype": "ellipsoidal"
+        },
+        "datum": {
+          "ellipsoid": {
+            "inverse_flattening": 298.257223563,
+            "name": "WGS 84",
+            "semi_major_axis": 6378137
+          },
+          "name": "World Geodetic System 1984",
+          "type": "GeodeticReferenceFrame"
+        },
+        "id": {
+          "authority": "OGC",
+          "code": "Auto42001",
+          "version": "1.3"
+        },
+        "name": "AUTO 42001 (Universal Transverse Mercator)",
+        "type": "GeodeticCRS"
+      },
+      "logical_roles": {},
+      "supported_indices": [],
+      "bands": [
+        {
+          "band_id": "QFLAG",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "PPI",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        }
+      ]
+    },
+    {
+      "collection_id": "ESA_WORLDCOVER_10M_2020_V1",
+      "title": "Global landcover at 10m resolution for 2020.",
+      "description": "WorldCover provides global land cover products for 2020 at 10 m resolution, developed and validated in near-real time based on Sentinel-1 and Sentinel-2 data. ",
+      "platform": null,
+      "instrument": null,
+      "license": "CC-BY-4.0",
+      "keywords": [
+        "VITO",
+        "COPERNICUS",
+        "ESA",
+        "Land Cover",
+        "Sentinel-1",
+        "Sentinel-2",
+        "Environment",
+        "WorldCover"
+      ],
+      "sensor_type": "other",
+      "temporal_extent": [
+        "2020-01-01T00:00:00Z",
+        "2020-12-31T23:59:59Z"
+      ],
+      "spatial_extent": {
+        "west": -180.0,
+        "east": 180.0,
+        "south": -60.0,
+        "north": 84.0
+      },
+      "native_resolution": {
+        "x": 8.3333333333e-05,
+        "y": 8.3333333333e-05
+      },
+      "crs": 4326,
+      "logical_roles": {},
+      "supported_indices": [],
+      "bands": [
+        {
+          "band_id": "MAP",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 10,
+          "data_type": "uint8",
+          "scale": null,
+          "offset": null,
+          "roles": []
+        }
+      ]
+    },
+    {
+      "collection_id": "ESA_WORLDCOVER_10M_2021_V2",
+      "title": "Global landcover at 10m resolution for 2021.",
+      "description": "WorldCover provides global land cover products for 2021 at 10 m resolution, developed and validated in near-real time based on Sentinel-1 and Sentinel-2 data. ",
+      "platform": null,
+      "instrument": null,
+      "license": "CC-BY-4.0",
+      "keywords": [
+        "VITO",
+        "COPERNICUS",
+        "ESA",
+        "Land Cover",
+        "Sentinel-1",
+        "Sentinel-2",
+        "Environment",
+        "WorldCover"
+      ],
+      "sensor_type": "other",
+      "temporal_extent": [
+        "2021-01-01T00:00:00Z",
+        "2021-12-31T23:59:59Z"
+      ],
+      "spatial_extent": {
+        "west": -180.0,
+        "east": 180.0,
+        "south": -60.0,
+        "north": 84.0
+      },
+      "native_resolution": {
+        "x": 8.3333333333e-05,
+        "y": 8.3333333333e-05
+      },
+      "crs": 4326,
+      "logical_roles": {},
+      "supported_indices": [],
+      "bands": [
+        {
+          "band_id": "MAP",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 10,
+          "data_type": "uint8",
+          "scale": null,
+          "offset": null,
+          "roles": []
+        }
+      ]
+    },
+    {
+      "collection_id": "COPERNICUS_VEGETATION_INDICES",
+      "title": "Vegetation Indices, daily, UTM projection",
+      "description": "[EXPERIMENTAL] Vegetation Indices (VI) at 10m resolution.",
+      "platform": null,
+      "instrument": null,
+      "license": "proprietary",
+      "keywords": [
+        "NDVI",
+        "LAI",
+        "FAPAR",
+        "PPI",
+        "index",
+        "land",
+        "vegetation",
+        "plant",
+        "phenology",
+        "growing season",
+        "productivity",
+        "sentinel"
+      ],
+      "sensor_type": "other",
+      "temporal_extent": [
+        "2017-01-01T00:00:00Z",
+        null
+      ],
+      "spatial_extent": {
+        "west": -62.0760771,
+        "east": 56.138312,
+        "south": -21.7894746,
+        "north": 72.0995811
+      },
+      "native_resolution": {
+        "x": 10,
+        "y": 10
+      },
+      "crs": {
+        "$schema": "https://proj.org/schemas/v0.2/projjson.schema.json",
+        "area": "World",
+        "bbox": {
+          "east_longitude": 180,
+          "north_latitude": 90,
+          "south_latitude": -90,
+          "west_longitude": -180
+        },
+        "coordinate_system": {
+          "axis": [
+            {
+              "abbreviation": "Lat",
+              "direction": "north",
+              "name": "Geodetic latitude",
+              "unit": "degree"
+            },
+            {
+              "abbreviation": "Lon",
+              "direction": "east",
+              "name": "Geodetic longitude",
+              "unit": "degree"
+            }
+          ],
+          "subtype": "ellipsoidal"
+        },
+        "datum": {
+          "ellipsoid": {
+            "inverse_flattening": 298.257223563,
+            "name": "WGS 84",
+            "semi_major_axis": 6378137
+          },
+          "name": "World Geodetic System 1984",
+          "type": "GeodeticReferenceFrame"
+        },
+        "id": {
+          "authority": "OGC",
+          "code": "Auto42001",
+          "version": "1.3"
+        },
+        "name": "AUTO 42001 (Universal Transverse Mercator)",
+        "type": "GeodeticCRS"
+      },
+      "logical_roles": {},
+      "supported_indices": [],
+      "bands": [
+        {
+          "band_id": "NDVI",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "PPI",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "LAI",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "FAPAR",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "QFLAG2",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        }
+      ]
+    },
+    {
+      "collection_id": "SENTINEL2_L1C",
+      "title": "Sentinel-2 L1C",
+      "description": "SENTINEL-2 is a wide-swath, high-resolution, multi-spectral imaging mission, supporting Copernicus Land Monitoring studies, including the monitoring of vegetation, soil and water cover, as well as observation of inland waterways and coastal areas. The SENTINEL-2 Multispectral Instrument (MSI) samples 13 spectral bands: four bands at 10 metres, six bands at 20 metres and three bands at 60 metres spatial resolution.",
+      "platform": null,
+      "instrument": null,
+      "license": "proprietary",
+      "keywords": [
+        "COPERNICUS",
+        "ESA",
+        "Orthoimagery",
+        "Sentinel-2",
+        "MSI",
+        "Level-2A",
+        "Radiometry",
+        "Plant Resource",
+        "TOC"
+      ],
+      "sensor_type": "optical",
+      "temporal_extent": [
+        "2015-07-04T00:00:00Z",
+        null
+      ],
+      "spatial_extent": {
+        "west": -180,
+        "east": 180,
+        "south": -56,
+        "north": 83
+      },
+      "native_resolution": {
+        "x": 10,
+        "y": 10
+      },
+      "crs": {
+        "$schema": "https://proj.org/schemas/v0.2/projjson.schema.json",
+        "area": "World",
+        "bbox": {
+          "east_longitude": 180,
+          "north_latitude": 90,
+          "south_latitude": -90,
+          "west_longitude": -180
+        },
+        "coordinate_system": {
+          "axis": [
+            {
+              "abbreviation": "Lat",
+              "direction": "north",
+              "name": "Geodetic latitude",
+              "unit": "degree"
+            },
+            {
+              "abbreviation": "Lon",
+              "direction": "east",
+              "name": "Geodetic longitude",
+              "unit": "degree"
+            }
+          ],
+          "subtype": "ellipsoidal"
+        },
+        "datum": {
+          "ellipsoid": {
+            "inverse_flattening": 298.257223563,
+            "name": "WGS 84",
+            "semi_major_axis": 6378137
+          },
+          "name": "World Geodetic System 1984",
+          "type": "GeodeticReferenceFrame"
+        },
+        "id": {
+          "authority": "OGC",
+          "code": "Auto42001",
+          "version": "1.3"
+        },
+        "name": "AUTO 42001 (Universal Transverse Mercator)",
+        "type": "GeodeticCRS"
+      },
+      "logical_roles": {
+        "BLUE": "B02",
+        "RED_EDGE": "B05",
+        "GREEN": "B03",
+        "RED": "B04",
+        "NIR": "B08",
+        "SWIR1": "B11",
+        "SWIR2": "B12"
+      },
+      "supported_indices": [
+        "NDVI",
+        "EVI",
+        "RGB",
+        "SAVI",
+        "OSAVI",
+        "MSAVI",
+        "MSAVI2",
+        "GNDVI",
+        "NDRE",
+        "ARVI",
+        "NDWI",
+        "MNDWI",
+        "AWEI_SH",
+        "AWEI_NSH",
+        "NDSI",
+        "NBR",
+        "NBR2",
+        "BAI",
+        "NDBI",
+        "BSI"
+      ],
+      "bands": [
+        {
+          "band_id": "B01",
+          "common_name": "coastal",
+          "center_wavelength_nm": 442.7,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 60,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "BLUE"
+          ]
+        },
+        {
+          "band_id": "B02",
+          "common_name": "blue",
+          "center_wavelength_nm": 492.4,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 10,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "BLUE"
+          ]
+        },
+        {
+          "band_id": "B03",
+          "common_name": "green",
+          "center_wavelength_nm": 559.8,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 10,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "RED_EDGE",
+            "GREEN"
+          ]
+        },
+        {
+          "band_id": "B04",
+          "common_name": "red",
+          "center_wavelength_nm": 664.6,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 10,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "RED_EDGE",
+            "RED"
+          ]
+        },
+        {
+          "band_id": "B05",
+          "common_name": null,
+          "center_wavelength_nm": 704.0999999999999,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 20,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "RED_EDGE"
+          ]
+        },
+        {
+          "band_id": "B06",
+          "common_name": null,
+          "center_wavelength_nm": 740.5,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 20,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "RED_EDGE"
+          ]
+        },
+        {
+          "band_id": "B07",
+          "common_name": null,
+          "center_wavelength_nm": 782.8000000000001,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 20,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B08",
+          "common_name": "nir",
+          "center_wavelength_nm": 832.8,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 10,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B8A",
+          "common_name": "nir08",
+          "center_wavelength_nm": 864.7,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 20,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B09",
+          "common_name": "nir09",
+          "center_wavelength_nm": 945.1,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 60,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B10",
+          "common_name": "cirrus",
+          "center_wavelength_nm": 1373.5,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 60,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": []
+        },
+        {
+          "band_id": "B11",
+          "common_name": "swir16",
+          "center_wavelength_nm": 1613.6999999999998,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 20,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "SWIR1"
+          ]
+        },
+        {
+          "band_id": "B12",
+          "common_name": "swir22",
+          "center_wavelength_nm": 2202.4,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 20,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "SWIR2"
+          ]
+        },
+        {
+          "band_id": "sunAzimuthAngles",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "sunZenithAngles",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "viewAzimuthMean",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "viewZenithMean",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        }
+      ]
+    },
+    {
+      "collection_id": "SENTINEL2_L2A",
+      "title": "Sentinel-2 L2A",
+      "description": "SENTINEL-2 is a wide-swath, high-resolution, multi-spectral imaging mission, supporting Copernicus Land Monitoring studies, including the monitoring of vegetation, soil and water cover, as well as observation of inland waterways and coastal areas. The SENTINEL-2 Multispectral Instrument (MSI) samples 13 spectral bands: four bands at 10 metres, six bands at 20 metres and three bands at 60 metres spatial resolution.\n The level 2A data is atmospherically corrected using Sen2Cor.",
+      "platform": null,
+      "instrument": null,
+      "license": "proprietary",
+      "keywords": [
+        "COPERNICUS",
+        "ESA",
+        "Orthoimagery",
+        "Sentinel-2",
+        "MSI",
+        "Level-2A",
+        "Radiometry",
+        "Plant Resource",
+        "TOC"
+      ],
+      "sensor_type": "optical",
+      "temporal_extent": [
+        "2015-07-04T00:00:00Z",
+        null
+      ],
+      "spatial_extent": {
+        "west": -180,
+        "east": 180,
+        "south": -56,
+        "north": 83
+      },
+      "native_resolution": {
+        "x": 10,
+        "y": 10
+      },
+      "crs": {
+        "$schema": "https://proj.org/schemas/v0.2/projjson.schema.json",
+        "area": "World",
+        "bbox": {
+          "east_longitude": 180,
+          "north_latitude": 90,
+          "south_latitude": -90,
+          "west_longitude": -180
+        },
+        "coordinate_system": {
+          "axis": [
+            {
+              "abbreviation": "Lat",
+              "direction": "north",
+              "name": "Geodetic latitude",
+              "unit": "degree"
+            },
+            {
+              "abbreviation": "Lon",
+              "direction": "east",
+              "name": "Geodetic longitude",
+              "unit": "degree"
+            }
+          ],
+          "subtype": "ellipsoidal"
+        },
+        "datum": {
+          "ellipsoid": {
+            "inverse_flattening": 298.257223563,
+            "name": "WGS 84",
+            "semi_major_axis": 6378137
+          },
+          "name": "World Geodetic System 1984",
+          "type": "GeodeticReferenceFrame"
+        },
+        "id": {
+          "authority": "OGC",
+          "code": "Auto42001",
+          "version": "1.3"
+        },
+        "name": "AUTO 42001 (Universal Transverse Mercator)",
+        "type": "GeodeticCRS"
+      },
+      "logical_roles": {
+        "BLUE": "B02",
+        "RED_EDGE": "B05",
+        "GREEN": "B03",
+        "RED": "B04",
+        "NIR": "B08",
+        "SWIR1": "B11",
+        "SWIR2": "B12",
+        "SCL": "SCL"
+      },
+      "supported_indices": [
+        "NDVI",
+        "EVI",
+        "RGB",
+        "SAVI",
+        "OSAVI",
+        "MSAVI",
+        "MSAVI2",
+        "GNDVI",
+        "NDRE",
+        "ARVI",
+        "NDWI",
+        "MNDWI",
+        "AWEI_SH",
+        "AWEI_NSH",
+        "NDSI",
+        "NBR",
+        "NBR2",
+        "BAI",
+        "NDBI",
+        "BSI"
+      ],
+      "bands": [
+        {
+          "band_id": "B01",
+          "common_name": "coastal",
+          "center_wavelength_nm": 442.7,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 60,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "BLUE"
+          ]
+        },
+        {
+          "band_id": "B02",
+          "common_name": "blue",
+          "center_wavelength_nm": 492.4,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 10,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "BLUE"
+          ]
+        },
+        {
+          "band_id": "B03",
+          "common_name": "green",
+          "center_wavelength_nm": 559.8,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 10,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "RED_EDGE",
+            "GREEN"
+          ]
+        },
+        {
+          "band_id": "B04",
+          "common_name": "red",
+          "center_wavelength_nm": 664.6,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 10,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "RED_EDGE",
+            "RED"
+          ]
+        },
+        {
+          "band_id": "B05",
+          "common_name": null,
+          "center_wavelength_nm": 704.0999999999999,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 20,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "RED_EDGE"
+          ]
+        },
+        {
+          "band_id": "B06",
+          "common_name": null,
+          "center_wavelength_nm": 740.5,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 20,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "RED_EDGE"
+          ]
+        },
+        {
+          "band_id": "B07",
+          "common_name": null,
+          "center_wavelength_nm": 782.8000000000001,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 20,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B08",
+          "common_name": "nir",
+          "center_wavelength_nm": 832.8,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 10,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B8A",
+          "common_name": "nir08",
+          "center_wavelength_nm": 864.7,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 20,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B09",
+          "common_name": "nir09",
+          "center_wavelength_nm": 945.1,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 60,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B11",
+          "common_name": "swir16",
+          "center_wavelength_nm": 1613.6999999999998,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 20,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "SWIR1"
+          ]
+        },
+        {
+          "band_id": "B12",
+          "common_name": "swir22",
+          "center_wavelength_nm": 2202.4,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 20,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": 0,
+          "roles": [
+            "SWIR2"
+          ]
+        },
+        {
+          "band_id": "WVP",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "AOT",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "SCL",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 20,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "SCL"
+          ]
+        },
+        {
+          "band_id": "sunAzimuthAngles",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "sunZenithAngles",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "viewAzimuthMean",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "viewZenithMean",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "CLD",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 20,
+          "data_type": "uint8",
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "SNW",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 20,
+          "data_type": "uint8",
+          "scale": null,
+          "offset": null,
+          "roles": []
+        }
+      ]
+    },
+    {
+      "collection_id": "SENTINEL1_GRD",
+      "title": "Sentinel-1 SAR GRD: C-band Synthetic Aperture Radar Ground Range Detected.",
+      "description": "The Sentinel-1 mission provides data from a dual-polarization C-band Synthetic Aperture Radar (SAR) instrument. This collection includes the S1 Ground Range Detected (GRD) scenes, processed to a calibrated, ortho-corrected product. This collection is compatible with \"sar_backscatter\" and \"ard_normalized_radar_backscatter\" processes.",
+      "platform": null,
+      "instrument": null,
+      "license": "free",
+      "keywords": [
+        "raster",
+        "systematic",
+        "satellite imagery",
+        "SAR",
+        "radar",
+        "backscattering",
+        "polarization",
+        "Copernicus",
+        "maritime monitoring",
+        "land monitoring",
+        "disaster response",
+        "open data"
+      ],
+      "sensor_type": "sar",
+      "temporal_extent": [
+        "2014-10-03T00:00:00Z",
+        null
+      ],
+      "spatial_extent": {
+        "west": -180,
+        "east": 180,
+        "south": -85,
+        "north": 85
+      },
+      "native_resolution": {
+        "x": 10,
+        "y": 10
+      },
+      "crs": {
+        "$schema": "https://proj.org/schemas/v0.2/projjson.schema.json",
+        "area": "World",
+        "bbox": {
+          "east_longitude": 180,
+          "north_latitude": 90,
+          "south_latitude": -90,
+          "west_longitude": -180
+        },
+        "coordinate_system": {
+          "axis": [
+            {
+              "abbreviation": "Lat",
+              "direction": "north",
+              "name": "Geodetic latitude",
+              "unit": "degree"
+            },
+            {
+              "abbreviation": "Lon",
+              "direction": "east",
+              "name": "Geodetic longitude",
+              "unit": "degree"
+            }
+          ],
+          "subtype": "ellipsoidal"
+        },
+        "datum": {
+          "ellipsoid": {
+            "inverse_flattening": 298.257223563,
+            "name": "WGS 84",
+            "semi_major_axis": 6378137
+          },
+          "name": "World Geodetic System 1984",
+          "type": "GeodeticReferenceFrame"
+        },
+        "id": {
+          "authority": "OGC",
+          "code": "Auto42001",
+          "version": "1.3"
+        },
+        "name": "AUTO 42001 (Universal Transverse Mercator)",
+        "type": "GeodeticCRS"
+      },
+      "logical_roles": {
+        "VV": "VV",
+        "VH": "VH"
+      },
+      "supported_indices": [
+        "VV_VH_RATIO",
+        "RVI"
+      ],
+      "bands": [
+        {
+          "band_id": "VH",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": "float",
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "VH"
+          ]
+        },
+        {
+          "band_id": "VV",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": "float",
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "VV"
+          ]
+        }
+      ]
+    },
+    {
+      "collection_id": "COPERNICUS_30",
+      "title": "Copernicus Global 30 meter Digital Elevation Model dataset.",
+      "description": "Copernicus Global 30 meter Digital Elevation Model dataset.",
+      "platform": null,
+      "instrument": null,
+      "license": "proprietary",
+      "keywords": [],
+      "sensor_type": "other",
+      "temporal_extent": [
+        "2010-12-12T00:00:00Z",
+        null
+      ],
+      "spatial_extent": {
+        "west": -180,
+        "east": 180,
+        "south": -90,
+        "north": 90
+      },
+      "native_resolution": {
+        "x": 0.0002777777777777778,
+        "y": 0.0002777777777777778
+      },
+      "crs": null,
+      "logical_roles": {},
+      "supported_indices": [],
+      "bands": [
+        {
+          "band_id": "DEM",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        }
+      ]
+    },
+    {
+      "collection_id": "LANDSAT8_L2",
+      "title": "Landsat 8 level 2 ARD, European Coverage",
+      "description": "Landsat-8 OLI/TIRS L2SP refers to the Level-2 Surface Reflectance product acquired by the Operational Land Imager (OLI) and Thermal Infrared Sensor (TIRS) instrument on board Landsat 8 satellite. This product is derived from the Landsat-8 OLI/TIRS L1T or L1TP product and is generated using atmospheric correction algorithms to remove atmospheric effects and convert the top-of-atmosphere reflectance to surface reflectance values.\n\n This is Landsat 8 Collection 2 European Coverage, so does not correspond to the full Landsat archive.",
+      "platform": null,
+      "instrument": null,
+      "license": "proprietary",
+      "keywords": [],
+      "sensor_type": "other",
+      "temporal_extent": [
+        "2015-01-01T00:00:00Z",
+        null
+      ],
+      "spatial_extent": {
+        "west": -20,
+        "east": 35,
+        "south": -35,
+        "north": 75
+      },
+      "native_resolution": {
+        "x": 30,
+        "y": 30
+      },
+      "crs": {
+        "$schema": "https://proj.org/schemas/v0.2/projjson.schema.json",
+        "area": "World",
+        "bbox": {
+          "east_longitude": 180,
+          "north_latitude": 90,
+          "south_latitude": -90,
+          "west_longitude": -180
+        },
+        "coordinate_system": {
+          "axis": [
+            {
+              "abbreviation": "Lat",
+              "direction": "north",
+              "name": "Geodetic latitude",
+              "unit": "degree"
+            },
+            {
+              "abbreviation": "Lon",
+              "direction": "east",
+              "name": "Geodetic longitude",
+              "unit": "degree"
+            }
+          ],
+          "subtype": "ellipsoidal"
+        },
+        "datum": {
+          "ellipsoid": {
+            "inverse_flattening": 298.257223563,
+            "name": "WGS 84",
+            "semi_major_axis": 6378137
+          },
+          "name": "World Geodetic System 1984",
+          "type": "GeodeticReferenceFrame"
+        },
+        "id": {
+          "authority": "OGC",
+          "code": "Auto42001",
+          "version": "1.3"
+        },
+        "name": "AUTO 42001 (Universal Transverse Mercator)",
+        "type": "GeodeticCRS"
+      },
+      "logical_roles": {},
+      "supported_indices": [],
+      "bands": [
+        {
+          "band_id": "B01",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Coastal Aerosol",
+          "gsd": 30,
+          "data_type": "uint16",
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "B02",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Blue",
+          "gsd": 30,
+          "data_type": "uint16",
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "B03",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Green",
+          "gsd": 30,
+          "data_type": "uint16",
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "B04",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Red",
+          "gsd": 30,
+          "data_type": "uint16",
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "B05",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Near-Infrared",
+          "gsd": 30,
+          "data_type": "uint16",
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "B06",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Short Wavelength Infrared 1",
+          "gsd": 30,
+          "data_type": "uint16",
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "B07",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Short Wavelength Infrared 2",
+          "gsd": 30,
+          "data_type": "uint16",
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "B10",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Thermal Infrared Sensor",
+          "gsd": 30,
+          "data_type": "uint16",
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "BQA",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Level-1 QA Band",
+          "gsd": 30,
+          "data_type": "uint16",
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "QA_RADSAT",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Level-1 Radiometric Saturation QA",
+          "gsd": 30,
+          "data_type": "uint16",
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "SR_QA_AEROSOL",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "SR Aerosol QA",
+          "gsd": 30,
+          "data_type": "uint8",
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "ST_QA",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Surface Temperature QA",
+          "gsd": 30,
+          "data_type": "int16",
+          "scale": 0.01,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "ST_TRAD",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Thermal band converted to radiance",
+          "gsd": 30,
+          "data_type": "int16",
+          "scale": 0.001,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "ST_URAD",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Upwelled Radiance",
+          "gsd": 30,
+          "data_type": "int16",
+          "scale": 0.001,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "ST_DRAD",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Downwelled Radiance",
+          "gsd": 30,
+          "data_type": "int16",
+          "scale": 0.001,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "ST_ATRAN",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Atmospheric Transmittance",
+          "gsd": 30,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "ST_EMIS",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Emissivity of Band 10 estimated from ASTER GED",
+          "gsd": 30,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "ST_EMSD",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Emissivity standard deviation",
+          "gsd": 30,
+          "data_type": "int16",
+          "scale": 0.0001,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "ST_CDIST",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Pixel distance to cloud",
+          "gsd": 30,
+          "data_type": "int16",
+          "scale": 0.01,
+          "offset": null,
+          "roles": []
+        }
+      ]
+    },
+    {
+      "collection_id": "SENTINEL3_SYN_L2_SYN",
+      "title": "Daily global Sentinel-3 Synergy products at 300m resolution combining OCLI and SLSTR bands.",
+      "description": "[Experimental] Sentinel-3  SYNERGY products are created from a combination of OLCI and SLSTR Level-1B products (including both\nnadir and oblique views). The SYNERGY swath is then corresponding to the common area between OLCI\nand SLSTR swaths, restricted to the daylight part of the SENTINEL-3 orbit (i.e., where the sun zenith angle\nat satellite ground track is lower than 80°).\n ",
+      "platform": null,
+      "instrument": null,
+      "license": "proprietary",
+      "keywords": [
+        "COPERNICUS",
+        "ESA",
+        "Sentinel-3",
+        "SYN"
+      ],
+      "sensor_type": "optical",
+      "temporal_extent": [
+        "2016-04-17T11:33:13Z",
+        null
+      ],
+      "spatial_extent": {
+        "west": -180,
+        "east": 180,
+        "south": -90,
+        "north": 90
+      },
+      "native_resolution": {
+        "x": 0.00297619047619,
+        "y": 0.00297619047619
+      },
+      "crs": 4326,
+      "logical_roles": {
+        "BLUE": "Syn_Oa04_reflectance",
+        "GREEN": "Syn_Oa06_reflectance",
+        "RED": "Syn_S2N_reflectance",
+        "RED_EDGE": "Syn_Oa11_reflectance",
+        "NIR": "Syn_Oa17_reflectance",
+        "SWIR1": "Syn_S5N_reflectance",
+        "SWIR2": "Syn_S6N_reflectance"
+      },
+      "supported_indices": [
+        "NDVI",
+        "EVI",
+        "RGB",
+        "SAVI",
+        "OSAVI",
+        "MSAVI",
+        "MSAVI2",
+        "GNDVI",
+        "NDRE",
+        "ARVI",
+        "NDWI",
+        "MNDWI",
+        "AWEI_SH",
+        "AWEI_NSH",
+        "NDSI",
+        "NBR",
+        "NBR2",
+        "BAI",
+        "NDBI",
+        "BSI"
+      ],
+      "bands": [
+        {
+          "band_id": "Syn_Oa01_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 400.0,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "Syn_Oa02_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 412.5,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "Syn_Oa03_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 442.5,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "BLUE"
+          ]
+        },
+        {
+          "band_id": "Syn_Oa04_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 490.0,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "BLUE"
+          ]
+        },
+        {
+          "band_id": "Syn_Oa05_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 510.0,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "BLUE"
+          ]
+        },
+        {
+          "band_id": "Syn_Oa06_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 560.0,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "GREEN"
+          ]
+        },
+        {
+          "band_id": "Syn_Oa07_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 620.0,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "RED"
+          ]
+        },
+        {
+          "band_id": "Syn_Oa08_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 665.0,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "RED"
+          ]
+        },
+        {
+          "band_id": "Syn_Oa09_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 673.75,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "RED"
+          ]
+        },
+        {
+          "band_id": "Syn_Oa10_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 681.25,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "RED"
+          ]
+        },
+        {
+          "band_id": "Syn_Oa11_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 708.75,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "RED_EDGE"
+          ]
+        },
+        {
+          "band_id": "Syn_Oa12_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 753.75,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "Syn_Oa16_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 778.75,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "Syn_Oa17_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 865.0,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "Syn_Oa18_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 885.0,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "Syn_Oa21_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 1020.0,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "Syn_S1N_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 555.0,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "GREEN"
+          ]
+        },
+        {
+          "band_id": "Syn_S1O_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 555.0,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "GREEN"
+          ]
+        },
+        {
+          "band_id": "Syn_S2N_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 659.0,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "RED"
+          ]
+        },
+        {
+          "band_id": "Syn_S2O_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 659.0,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "RED"
+          ]
+        },
+        {
+          "band_id": "Syn_S3N_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 865.0,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "Syn_S3O_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 865.0,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "Syn_S5N_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 1610.0,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "SWIR1"
+          ]
+        },
+        {
+          "band_id": "Syn_S5O_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 1610.0,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "SWIR1"
+          ]
+        },
+        {
+          "band_id": "Syn_S6N_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 2250.0,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "SWIR2"
+          ]
+        },
+        {
+          "band_id": "Syn_S6O_reflectance",
+          "common_name": null,
+          "center_wavelength_nm": 2250.0,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "SWIR2"
+          ]
+        },
+        {
+          "band_id": "CLOUD_flags",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "OLC_flags",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "SLN_flags",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "SLO_flags",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "SYN_flags",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        }
+      ]
+    },
+    {
+      "collection_id": "SENTINEL3_SLSTR_L2_LST",
+      "title": "Daily global Sentinel-3 Land surface temperature at 1km resolution",
+      "description": "*Experimental* Daily global Sentinel-3 land surface temperature at 1km resolution. Land surface temperature is defined as the effective radiometric temperature of the Earth's surface \"skin\" in the instrument field of view. Here, \"skin\" is referring to the top surface in bare soil conditions and to the effective emitting temperature of vegetation \"canopies\" as determined from a view of the top of a canopy.\n This product is derived from the SLSTR (Sea and Land Surface Temperature Radiometer) instrument on board the Sentinel-3 satellite.\n\n Multiple observations may be available per day, we recommend temporal aggregation to create daily composites. ",
+      "platform": null,
+      "instrument": null,
+      "license": "proprietary",
+      "keywords": [
+        "COPERNICUS",
+        "ESA",
+        "Sentinel-3",
+        "SLSTR"
+      ],
+      "sensor_type": "other",
+      "temporal_extent": [
+        "2016-04-17T11:33:13Z",
+        null
+      ],
+      "spatial_extent": {
+        "west": -180,
+        "east": 180,
+        "south": -90,
+        "north": 90
+      },
+      "native_resolution": {
+        "x": 0.008928571428571,
+        "y": 0.008928571428571
+      },
+      "crs": 4326,
+      "logical_roles": {
+        "RED_EDGE": "LST"
+      },
+      "supported_indices": [],
+      "bands": [
+        {
+          "band_id": "LST",
+          "common_name": "surface_temperature",
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 1000,
+          "data_type": null,
+          "scale": 0.0020000001,
+          "offset": 290,
+          "roles": [
+            "RED_EDGE"
+          ]
+        },
+        {
+          "band_id": "LST_uncertainty",
+          "common_name": "surface_temperature_standard_error",
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 1000,
+          "data_type": null,
+          "scale": 0.0020000001,
+          "offset": 0,
+          "roles": [
+            "RED_EDGE"
+          ]
+        },
+        {
+          "band_id": "exception",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 1000,
+          "data_type": null,
+          "scale": 1,
+          "offset": 0,
+          "roles": []
+        },
+        {
+          "band_id": "confidence_in",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "quality control flags including summary_cloud flag",
+          "gsd": 1000,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "sunAzimuthAngles",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "nadir view solar azimuth angles",
+          "gsd": 1000,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "sunZenithAngles",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "nadir view solar zenith angles",
+          "gsd": 1000,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "viewAzimuthAngles",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "nadir view satellite azimuth angles",
+          "gsd": 1000,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "viewZenithAngles",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "nadir view satellite zenith angles",
+          "gsd": 1000,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        }
+      ]
+    },
+    {
+      "collection_id": "SENTINEL1_GLOBAL_MOSAICS",
+      "title": "Sentinel 1 Monthly Mosaics",
+      "description": "[EXPERIMENTAL] Sentinel-1 monthly mosaics are generated from monthly stacks of Sentinel-1 GRD data by calculating the weighted sum of the terrain corrected backscatter observations. Two different Sentinel-1 mosaics are being produced for each month: IW mosaic and DH mosaic.",
+      "platform": null,
+      "instrument": null,
+      "license": "proprietary",
+      "keywords": [
+        "raster",
+        "systematic",
+        "satellite imagery",
+        "SAR",
+        "radar",
+        "backscattering",
+        "polarization",
+        "Copernicus",
+        "maritime monitoring",
+        "land monitoring",
+        "disaster response",
+        "open data"
+      ],
+      "sensor_type": "sar",
+      "temporal_extent": [
+        "2023-01-01T00:00:00Z",
+        "2023-12-01T00:00:00Z"
+      ],
+      "spatial_extent": {
+        "west": -180,
+        "east": 180,
+        "south": -90,
+        "north": 90
+      },
+      "native_resolution": {
+        "x": 20,
+        "y": 20
+      },
+      "crs": {
+        "$schema": "https://proj.org/schemas/v0.2/projjson.schema.json",
+        "area": "World",
+        "bbox": {
+          "east_longitude": 180,
+          "north_latitude": 90,
+          "south_latitude": -90,
+          "west_longitude": -180
+        },
+        "coordinate_system": {
+          "axis": [
+            {
+              "abbreviation": "Lat",
+              "direction": "north",
+              "name": "Geodetic latitude",
+              "unit": "degree"
+            },
+            {
+              "abbreviation": "Lon",
+              "direction": "east",
+              "name": "Geodetic longitude",
+              "unit": "degree"
+            }
+          ],
+          "subtype": "ellipsoidal"
+        },
+        "datum": {
+          "ellipsoid": {
+            "inverse_flattening": 298.257223563,
+            "name": "WGS 84",
+            "semi_major_axis": 6378137
+          },
+          "name": "World Geodetic System 1984",
+          "type": "GeodeticReferenceFrame"
+        },
+        "id": {
+          "authority": "OGC",
+          "code": "Auto42001",
+          "version": "1.3"
+        },
+        "name": "AUTO 42001 (Universal Transverse Mercator)",
+        "type": "GeodeticCRS"
+      },
+      "logical_roles": {
+        "VV": "VV",
+        "VH": "VH",
+        "HH": "HH",
+        "HV": "HV"
+      },
+      "supported_indices": [
+        "VV_VH_RATIO",
+        "RVI"
+      ],
+      "bands": [
+        {
+          "band_id": "VV",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "VV"
+          ]
+        },
+        {
+          "band_id": "VH",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "VH"
+          ]
+        },
+        {
+          "band_id": "HV",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "HV"
+          ]
+        },
+        {
+          "band_id": "HH",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": null,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "HH"
+          ]
+        }
+      ]
+    },
+    {
+      "collection_id": "SENTINEL3_OLCI_L2_LAND",
+      "title": "Sentinel-3 OLCI Land Full Resolution (NRT)",
+      "description": "This collection provides Sentinel-3 OLCI Level-2 Land Full Resolution products containing data on global vegetation, chlorophyll, and water vapor.",
+      "platform": null,
+      "instrument": null,
+      "license": "proprietary",
+      "keywords": [
+        "Sentinel",
+        "Copernicus",
+        "ESA",
+        "Satellite",
+        "Global",
+        "Land",
+        "Biomass"
+      ],
+      "sensor_type": "other",
+      "temporal_extent": [
+        "2016-04-25T11:33:47.368562Z",
+        null
+      ],
+      "spatial_extent": {
+        "west": -180,
+        "east": 180,
+        "south": -90,
+        "north": 90
+      },
+      "native_resolution": {
+        "x": 0.002678571,
+        "y": 0.002678571
+      },
+      "crs": 4326,
+      "logical_roles": {},
+      "supported_indices": [],
+      "bands": [
+        {
+          "band_id": "GIFAPAR",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Fraction of Absorbed Photosynthetically Active Radiation (FAPAR) in the plant canopy",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "IWV",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Total amount of water vapour integrated over an atmosphere column",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "OTCI",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Estimates of the Chlorophyll content in terrestrial vegetation, aims at monitoring vegetation condition and health",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "RC681",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "By-products of the GI-FAPAR, the so-called red and NIR rectified reflectances are virtual reflectance largely decontaminated from atmospheric and angular effects, and good proxy to Top of Canopy reflectances.",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "RC865",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "By-products of the GI-FAPAR, the so-called red and NIR rectified reflectances are virtual reflectance largely decontaminated from atmospheric and angular effects, and good proxy to Top of Canopy reflectances.",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "LQSF",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Quality and science flags",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        }
+      ]
+    },
+    {
+      "collection_id": "SENTINEL3_OLCI_L2_WATER",
+      "title": "Sentinel-3 OLCI Water Full Resolution (NRT)",
+      "description": "OLCI Level 2 Marine products provide spectral information on the colour of the oceans (water reflectances). These radiometric products are used to estimate geophysical parameters e.g. estimates of phytoplankton biomass through determining the Chlorophyll-a (Chl) concentration. In coastal areas, they also allow monitoring of the sediment load via the Total Suspended Matter (TSM) product. Full resolution products are at a nominal 300m resolution.",
+      "platform": null,
+      "instrument": null,
+      "license": "proprietary",
+      "keywords": [
+        "Sentinel",
+        "Copernicus",
+        "ESA",
+        "Satellite",
+        "Global",
+        "Water",
+        "Ocean"
+      ],
+      "sensor_type": "optical",
+      "temporal_extent": [
+        "2017-11-01T00:07:01.738487Z",
+        null
+      ],
+      "spatial_extent": {
+        "west": -180,
+        "east": 180,
+        "south": -90,
+        "north": 90
+      },
+      "native_resolution": {
+        "x": 0.002678571,
+        "y": 0.002678571
+      },
+      "crs": 4326,
+      "logical_roles": {
+        "BLUE": "B04",
+        "GREEN": "B06",
+        "RED": "B08",
+        "RED_EDGE": "B11",
+        "NIR": "B17",
+        "SCL": "FLAGS"
+      },
+      "supported_indices": [
+        "NDVI",
+        "EVI",
+        "RGB",
+        "SAVI",
+        "OSAVI",
+        "MSAVI",
+        "MSAVI2",
+        "GNDVI",
+        "NDRE",
+        "ARVI",
+        "NDWI",
+        "BAI"
+      ],
+      "bands": [
+        {
+          "band_id": "FLAGS",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Water classification, quality and science flags",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "SCL"
+          ]
+        },
+        {
+          "band_id": "IWV",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Integrated water vapour column",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "CHL_OC4ME",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Open Water algal pigment concentration, log10 scaled",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "TSM_NN",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Total suspended matter concentration",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "PAR",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Photosynthetically active radiation",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "KD490_M07",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Diffuse attenuation coefficient at 490nm",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "A865",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Aerosol Angström exponent",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "T865",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Aerosol optical thickness",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "CHL_NN",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Neural net algal pigment concentration (chlorophyll), log10 scaled",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "ADG443_NN",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": "Coloured Detrital and Dissolved Material absorption",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "B01",
+          "common_name": null,
+          "center_wavelength_nm": 400.0,
+          "full_width_half_max_nm": null,
+          "description": "Band 1 - Aerosol correction, improved water constituent retrieval",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "B02",
+          "common_name": null,
+          "center_wavelength_nm": 412.5,
+          "full_width_half_max_nm": null,
+          "description": "Band 2 - Yellow substance and detrital pigments (turbidity)",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "B03",
+          "common_name": null,
+          "center_wavelength_nm": 442.5,
+          "full_width_half_max_nm": null,
+          "description": "Band 3 - Chlorophyll absorption maximum, biogeochemistry, vegetation",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "BLUE"
+          ]
+        },
+        {
+          "band_id": "B04",
+          "common_name": null,
+          "center_wavelength_nm": 490.0,
+          "full_width_half_max_nm": null,
+          "description": "Band 4 - Chlorophyll",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "BLUE"
+          ]
+        },
+        {
+          "band_id": "B05",
+          "common_name": null,
+          "center_wavelength_nm": 510.0,
+          "full_width_half_max_nm": null,
+          "description": "Band 5 - Chlorophyll, sediment, turbidity, red tide",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "BLUE"
+          ]
+        },
+        {
+          "band_id": "B06",
+          "common_name": null,
+          "center_wavelength_nm": 560.0,
+          "full_width_half_max_nm": null,
+          "description": "Band 6 - Chlorophyll reference (minimum)",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "GREEN"
+          ]
+        },
+        {
+          "band_id": "B07",
+          "common_name": null,
+          "center_wavelength_nm": 620.0,
+          "full_width_half_max_nm": null,
+          "description": "Band 7 - Sediment loading",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "RED"
+          ]
+        },
+        {
+          "band_id": "B08",
+          "common_name": null,
+          "center_wavelength_nm": 665.0,
+          "full_width_half_max_nm": null,
+          "description": "Band 8 - 2nd Chlorophyll absorption maximum, sediment, yellow substance / vegetation",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "RED"
+          ]
+        },
+        {
+          "band_id": "B09",
+          "common_name": null,
+          "center_wavelength_nm": 673.75,
+          "full_width_half_max_nm": null,
+          "description": "Band 9 - Improved fluorescence retrieval",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "RED"
+          ]
+        },
+        {
+          "band_id": "B10",
+          "common_name": null,
+          "center_wavelength_nm": 681.25,
+          "full_width_half_max_nm": null,
+          "description": "Band 10 - Chlorophyll fluorescence peak, red edge",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "RED_EDGE",
+            "RED"
+          ]
+        },
+        {
+          "band_id": "B11",
+          "common_name": null,
+          "center_wavelength_nm": 708.75,
+          "full_width_half_max_nm": null,
+          "description": "Band 11 - Chlorophyll fluorescence baseline, red edge transition",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "RED_EDGE"
+          ]
+        },
+        {
+          "band_id": "B12",
+          "common_name": null,
+          "center_wavelength_nm": 753.75,
+          "full_width_half_max_nm": null,
+          "description": "Band 12 - O2 absorption / clouds, vegetation",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B16",
+          "common_name": null,
+          "center_wavelength_nm": 778.75,
+          "full_width_half_max_nm": null,
+          "description": "Atmospheric / aerosol correction",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B17",
+          "common_name": null,
+          "center_wavelength_nm": 865.0,
+          "full_width_half_max_nm": null,
+          "description": "Atmospheric / aerosol correction, clouds, pixel co-registration",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B18",
+          "common_name": null,
+          "center_wavelength_nm": 885.0,
+          "full_width_half_max_nm": null,
+          "description": "Water vapour absorption reference. Common reference band with SLSTR. Vegetation monitoring",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": [
+            "NIR"
+          ]
+        },
+        {
+          "band_id": "B21",
+          "common_name": null,
+          "center_wavelength_nm": 1020.0,
+          "full_width_half_max_nm": null,
+          "description": "Water vapour absorption, atmospheric / aerosol correction",
+          "gsd": 300,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        }
+      ]
+    },
+    {
+      "collection_id": "SENTINEL3_SYN_L2_AOD",
+      "title": "Sentinel-3 SYNERGY Aerosol Optical Depth",
+      "description": "This Collection provides the Sentinel-3 Synergy Level-2 Aerosol Optical Depth product, which is a downstream development of the Sentinel-2 Level-1 OLCI FR and SLSTR Radiances and Brightness Temperatures products. The dataset provides both retrieved and diagnostic global aerosol parameters at super-pixel (4.5 km x 4.5 km) resolution for all regions over land and ocean free of snow/ice cover, excluding high cloud fraction data.",
+      "platform": null,
+      "instrument": null,
+      "license": "proprietary",
+      "keywords": [
+        "Sentinel",
+        "Copernicus",
+        "ESA",
+        "Satellite",
+        "Global",
+        "Atmosphere"
+      ],
+      "sensor_type": "other",
+      "temporal_extent": [
+        null,
+        null
+      ],
+      "spatial_extent": {
+        "west": -180,
+        "east": 180,
+        "south": -90,
+        "north": 90
+      },
+      "native_resolution": {
+        "x": 0.040178571,
+        "y": 0.040178571
+      },
+      "crs": 4326,
+      "logical_roles": {},
+      "supported_indices": [],
+      "bands": [
+        {
+          "band_id": "AOD_440",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 4500,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "AOD_550",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 4500,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "AOD_670",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 4500,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "AOD_865",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 4500,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "AOD_1600",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 4500,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "AOD_2250",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 4500,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "FM_AOD550",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 4500,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "SSA_440",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 4500,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "SSA_550",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 4500,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "SSA_670",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 4500,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "SSA_865",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 4500,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "SSA_1600",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 4500,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "SSA_2250",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 4500,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "ANG550_865",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 4500,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "D_AOD550",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 4500,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        },
+        {
+          "band_id": "AAOD550",
+          "common_name": null,
+          "center_wavelength_nm": null,
+          "full_width_half_max_nm": null,
+          "description": null,
+          "gsd": 4500,
+          "data_type": null,
+          "scale": null,
+          "offset": null,
+          "roles": []
+        }
+      ]
+    }
+  ]
+}
