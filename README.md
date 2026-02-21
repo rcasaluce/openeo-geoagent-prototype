@@ -10,7 +10,7 @@ Before using the code, please check the documentation in the **`documentation/`*
 
 ```text
 repo/
-├─ README.md                         # Short project guide (GitHub-friendly)
+├─ README.md                         # Short project guide
 ├─ .gitignore
 │
 ├─ src/
